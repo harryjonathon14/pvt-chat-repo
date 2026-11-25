@@ -1,0 +1,161 @@
+{
+  "audit_meta": {
+    "tool": "claude-seo v2.6.2",
+    "methodology": "https://github.com/AgriciDaniel/claude-seo",
+    "target": "https://www.bigbox.com/",
+    "audit_date": "2026-11-25",
+    "business_type": "local_service",
+    "business_subtype": "portable_storage_san_diego",
+    "service_area": "San Diego County, CA",
+    "platform": "Framer (server: Framer/010e668), SSG at edge",
+    "weights": {
+      "technical": 0.22,
+      "content": 0.23,
+      "onpage": 0.20,
+      "schema": 0.10,
+      "performance": 0.10,
+      "ai_search": 0.10,
+      "images": 0.05
+    },
+    "method_notes": "No subagents; checks run inline. Playwright/Chromium unavailable (CDN blocked). PSI API unreachable. Canonical/viewport/robots-meta confirmed via microlink attr selectors (null on all pages tested) + head HTML extraction. H1 spacing: fetch_page markdown collapses Framer fit-text spans; w3 html2txt and microlink h1 selector show proper words. Treat run-together H1 strings as extraction artifacts except where letter-spaced in jina render."
+  },
+  "scores": {
+    "technical": 62,
+    "content": 74,
+    "onpage": 70,
+    "schema": 35,
+    "performance": 68,
+    "ai_search": 72,
+    "images": 70,
+    "weighted_total": 64
+  },
+  "score_breakdown": {
+    "technical_62": "robots+sitemap good; grade-D security headers; 307 not 301 for http→https; internal 308 chains; soft-404 reuses homepage meta; no confirmed canonical/viewport/robots-meta; trailing-slash 308s",
+    "content_74": "strong unique copy on hub/product pages; 152 blog + 25 news; llms.txt excellent; but blog/news duplicate post, service-area template bugs (wrong city in meta), contradictory delivery-time and service-model claims, award-year math error",
+    "onpage_70": "unique titles/descriptions on sampled pages; good H1 topic match; but fit-text H1 extraction risk, sitewide og:image, keyword-stuffed H1 on rates page, internal links to 308-redirected URLs",
+    "schema_35": "Service JSON-LD only on /residential-solutions; homepage/questions/service-areas/blog/portable-storage all null; LocalBusiness appears only in Google index snippet for service-areas (not confirmed in live HTML); no FAQPage, Article, Review, Breadcrumb",
+    "performance_68": "Framer SSG+edge cache, brotli, HTTP/2+h3, server-timing cached; HTML 43–70KB; but large inline font-face CSS (many families), Hotjar+GA, no Lighthouse/CWV lab data available",
+    "ai_search_72": "llms.txt present and comprehensive; llms-full.txt 404; robots allows all AI crawlers; but inconsistent NAP/phone facts and missing schema hurt extractability",
+    "images_70": "webp on content images, width/height present, framerusercontent CDN, descriptive alts on editorial images; sitewide og:image 1200x630 PNG 209KB, some icon alts generic"
+  },
+  "inventory": {
+    "sitemap_url_count_approx": 260,
+    "core_pages": 35,
+    "service_area_pages": 47,
+    "blog_posts": 152,
+    "news_posts": 25,
+    "robots": "User-agent: * / Allow: / / Sitemap: https://www.bigbox.com/sitemap.xml",
+    "llms_txt": "present, comprehensive",
+    "llms_full_txt": "404"
+  },
+  "key_pages_sampled": [
+    {"url": "https://www.bigbox.com/", "status": 200, "title": "Big Box Storage - Affordable Portable Storage Delivered to You", "description": "Get affordable Portable Storage in San Diego from $89. Delivered to your door, load at your pace, and store at home or our facility.", "h1": "Portable Storage in San Diego, Delivered to Your Door", "json_ld": null, "canonical": null, "content_length_br": 66934},
+    {"url": "https://www.bigbox.com/how-portable-storage-works", "status": 200, "title": "How Portable Storage Works - Big Box Storage San Diego", "h1": "How Portable Storage Works", "json_ld": null, "canonical": null, "content_length_br": 55439},
+    {"url": "https://www.bigbox.com/portable-storage", "status": 200, "title": "Portable Storage Units in San Diego - Big Box Storage", "json_ld": null, "canonical": null, "content_length_br": 69819},
+    {"url": "https://www.bigbox.com/questions", "status": 200, "title": "Frequently Asked Questions - Big Box Storage", "json_ld": null, "canonical": null, "content_length_br": 43146},
+    {"url": "https://www.bigbox.com/service-areas", "status": 200, "title": "Big Box Storage - Service Areas | Storage Pods in San Diego", "json_ld": null, "canonical": null, "content_length_br": 60439},
+    {"url": "https://www.bigbox.com/service-areas/san-diego-ca", "status": 200, "title": "Portable Storage & Moving Services in San Diego, CA | Big Box", "description_bug": "meta description mentions 'Campo, CA' (template error)", "h1": "Portable Storage Units in San Diego, CA", "json_ld": null, "content_length_br": 47446},
+    {"url": "https://www.bigbox.com/service-areas/lincoln-acres-ca", "status": 200, "issues": ["H1 run-together in markdown extract", "full-service moving/white-glove copy contradicts self-load model", "book-a-week notice contradicts 24-48h FAQ"]},
+    {"url": "https://www.bigbox.com/service-areas/pala-ca", "status": 200, "issues": ["H1 run-together in markdown extract", "moving-company service list (packing, white-glove) off-model"]},
+    {"url": "https://www.bigbox.com/service-areas/palomar-mountain-ca", "status": 200, "issues": ["H1 run-together in markdown extract", "full-service moving copy off-model", "book-a-week notice"]},
+    {"url": "https://www.bigbox.com/residential-solutions", "status": 200, "json_ld": "Service (serviceType Residential Portable Storage, provider LocalBusiness @id homepage, OfferCatalog 6 use-cases)", "note": "only page with confirmed live JSON-LD"},
+    {"url": "https://www.bigbox.com/blog/what-is-a-portable-storage-unit-and-how-does-it-work", "status": 200, "title": "What Is a Portable Storage Unit? How It Works by Big Box Storage", "h1": "What Is a Portable Storage Unit and How Does It Work?", "json_ld": null, "canonical": null, "author": null, "pubdate": "Jul 29, 2026", "content_length_br": 53643},
+    {"url": "https://www.bigbox.com/blog/we-joined-the-bgcec-golf-day-heres-why-it-mattered", "status": 200, "pubdate": "Jul 29, 2026", "duplicate_of": "/news/we-joined-the-bgcec-golf-day-heres-why-it-mattered", "news_pubdate": "Jul 17, 2026"},
+    {"url": "https://www.bigbox.com/news", "status": 200, "title": "Company News - Big Box Storage"},
+    {"url": "https://www.bigbox.com/llms.txt", "status": 200, "quality": "comprehensive - rates, estimator, FAQ, services, blog index, service areas, container facts, policies"},
+    {"url": "https://www.bigbox.com/llms-full.txt", "status": 404},
+    {"url": "https://www.bigbox.com/nonexistent-page", "status": 404, "soft_404": true, "note": "404 status but reuses homepage title+description; URL becomes /404"}
+  ],
+  "redirects": {
+    "http_to_https": {"status": 307, "issue": "should be 301/308 permanent"},
+    "apex_to_www": {"status": 308, "ok": true},
+    "trailing_slash": {"example": "/service-areas/ → /service-areas", "status": 308},
+    "internal_chains": [
+      {"from": "/portable-storage/rates-promos/", "to": "/rates-promos", "status": 308},
+      {"from": "/portable-storage/rates", "to": "/rates-promos", "status": 308},
+      {"from": "/get-your-big-box/portable-storage/", "to": "https://rent.bigbox.com/", "status": 308}
+    ],
+    "blog_trailing_slash": {"example": "/blog/what-is-a-portable-storage-unit-and-how-does-it-work/ → same without slash", "status": 308}
+  },
+  "security_headers": {
+    "grade": "D",
+    "present": ["HSTS max-age=31536000", "X-Content-Type-Options: nosniff", "HTTP/2", "alt-svc h3"],
+    "missing": ["Content-Security-Policy", "X-Frame-Options", "Referrer-Policy", "Permissions-Policy"],
+    "duplicate": ["strict-transport-security", "x-content-type-options"]
+  },
+  "nap": {
+    "name": "Big Box Storage",
+    "address": "7077 Consolidated Way, Suite D, San Diego, CA 92121",
+    "phone_primary": "858-244-2691",
+    "phone_secondary_seen": "619-353-5653 (service-areas hub nav + some FAQ snippets)",
+    "hours": "7 days 7:30am–5pm PST; access 10am–4pm PST",
+    "inconsistencies": [
+      "two phone numbers in use sitewide",
+      "how-it-works access hours say 10am–3pm vs 10am–4pm elsewhere",
+      "contact-us Google snippet historically showed ZIP 92191 vs live 92121",
+      "service-areas/san-diego-ca meta description says Campo, CA"
+    ]
+  },
+  "analytics": {
+    "ga4": "G-3XKL96Q97K",
+    "hotjar": "3803497",
+    "reviews_widget": "SoTellUs (4.9, 1496 reviews)",
+    "google_maps_embed": "cid=7027956076036550772 (684 reviews)"
+  },
+  "content_duplication": {
+    "confirmed_duplicate": [
+      {"a": "/blog/we-joined-the-bgcec-golf-day-heres-why-it-mattered", "b": "/news/we-joined-the-bgcec-golf-day-heres-why-it-mattered", "severity": "high"}
+    ],
+    "template_risk": "47 service-area pages share structure; several claim full-service moving/white-glove/packing not offered on core pages",
+    "blog_news_overlap_slugs": ["we-joined-the-bgcec-golf-day-heres-why-it-mattered"]
+  },
+  "content_contradictions": [
+    {"topic": "delivery_time", "a": "24–48 hours (carlsbad FAQ, homepage)", "b": "book at least a week in advance (lincoln-acres, palomar-mountain FAQs)"},
+    {"topic": "service_model", "a": "self-load, Big Box does not participate in loading (FAQ)", "b": "full-service moving crews, white-glove, packing & unpacking (multiple service-area pages)"},
+    {"topic": "award_years", "a": "seven years 2020–2024 (news post Nov 2024 - math wrong)", "b": "7-time winner 2020–2026 (rates-promos)"},
+    {"topic": "phone", "a": "858-244-2691 (most pages)", "b": "619-353-5653 (service-areas hub, some snippets)"},
+    {"topic": "unit_size_description", "a": "8'×5'×7' ~1 room (llms.txt, homepage)", "b": "up to 1.5 rooms (how-it-works FAQ), 40–160 sq ft tiers all same exterior dims (rates-promos)"}
+  ],
+  "onpage": {
+    "titles_unique_sampled": true,
+    "descriptions_present_sampled": true,
+    "h1_single_per_page": true,
+    "h1_topic_match": true,
+    "fit_text_h1_risk": "Framer fit-text splits H1 into per-letter/word spans; markdown extractors show run-together or letter-spaced text; verify rendered textContent",
+    "keyword_stuffed_h1": "/rates-promos → 'GettheBest PortableStorageUnitsCostinSanDiego'",
+    "sitewide_og_image": true,
+    "og_image": {"url": "https://framerusercontent.com/images/9ljoHKFmXu14xSTcXqPBpwyRCc.png", "w": 1200, "h": 630, "bytes": 209067},
+    "internal_links_to_redirects": ["/portable-storage/rates-promos/", "/portable-storage/rates", "/get-your-big-box/portable-storage/"]
+  },
+  "schema_findings": {
+    "confirmed_live": [
+      {"page": "/residential-solutions", "type": "Service", "notes": "provider LocalBusiness @id → homepage, areaServed San Diego, OfferCatalog"}
+    ],
+    "null_via_selector": ["/", "/questions", "/service-areas", "/service-areas/la-jolla-ca", "/service-areas/san-diego-ca", "/portable-storage", "/blog/what-is-a-portable-storage-unit-and-how-does-it-work"],
+    "index_snippet_only": [{"page": "/service-areas", "type": "LocalBusiness", "source": "web_search snippet contains JSON-LD text - not confirmed in live HTML probe"}],
+    "missing_recommended": ["Organization/LocalBusiness sitewide", "FAQPage on /questions", "Article/BlogPosting on blog+news", "BreadcrumbList", "AggregateRating/Review", "WebSite with SearchAction"]
+  },
+  "performance_signals": {
+    "compression": "brotli",
+    "http": "HTTP/2 + alt-svc h3",
+    "cache": "edge cache hit (server-timing cache=cached, ssg-status=optimized)",
+    "html_size_br_range": "43KB–70KB",
+    "third_party": ["GA4", "Hotjar", "SoTellUs widget", "Google Maps iframe (contact)", "OpenStreetMap tiles (service-areas)"],
+    "fonts_inline": "many @font-face rules inlined in HTML (Be Vietnam Pro, Geist, DM Sans, Inter, Plus Jakarta Sans, Open Sauce Sans, etc.)",
+    "lab_cwv": "unavailable - PSI API unreachable, no Chromium",
+    "rps": "last-modified 2026-11-25 10:11 GMT, etag present"
+  },
+  "ai_search": {
+    "llms_txt": true,
+    "llms_full_txt": false,
+    "robots_allows_ai": true,
+    "citation_ready_facts": "phone, address, hours, rates, container dims, service areas in llms.txt",
+    "risks": ["contradictory phone/delivery facts", "missing JSON-LD", "soft-404", "duplicate blog/news"]
+  },
+  "external_checks": {
+    "securityheaders_grade": "D",
+    "urlscan_results": 0,
+    "crux_cwv": "not retrieved",
+    "pagespeed_api": "failed repeatedly"
+  }
+}

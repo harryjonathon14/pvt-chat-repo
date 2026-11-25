@@ -1,0 +1,83 @@
+{
+  "url": "https://www.bigbox.com/",
+  "host": "www.bigbox.com",
+  "tls": {
+    "host": "www.bigbox.com",
+    "port": 443,
+    "connected_ip": "31.43.160.6",
+    "verified": false,
+    "verify_error": null,
+    "verify_code": null,
+    "certificate_read": false,
+    "subject": null,
+    "issuer": null,
+    "not_before": null,
+    "not_after": null,
+    "days_until_expiry": null,
+    "expired": null,
+    "not_yet_valid": null,
+    "san": [],
+    "san_count": 0,
+    "covers_host": null,
+    "sibling_host": "bigbox.com",
+    "covers_sibling": null,
+    "protocol": null,
+    "cipher": null,
+    "cipher_bits": null,
+    "error": "SSLZeroReturnError: TLS/SSL connection has been closed (EOF) (_ssl.c:992)"
+  },
+  "headers": {
+    "url": "https://www.bigbox.com/",
+    "error": "SSLError: HTTPSConnectionPool(host='www.bigbox.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+  },
+  "redirects": {
+    "http_to_https": {
+      "checked_url": "http://www.bigbox.com/",
+      "redirects_to_https": false,
+      "one_hop": false,
+      "first_hop_status": null,
+      "first_hop_target": null,
+      "first_hop_same_host": null,
+      "permanent": null,
+      "hops": 0,
+      "final_url": null,
+      "error": "ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+    },
+    "www": {
+      "host": "www.bigbox.com",
+      "sibling_host": "bigbox.com",
+      "host_final_url": null,
+      "sibling_final_url": null,
+      "sibling_resolves": true,
+      "sibling_tls_error": true,
+      "same_final_url": null,
+      "error": "SSLError: HTTPSConnectionPool(host='www.bigbox.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    }
+  },
+  "findings": [
+    {
+      "id": "tls-handshake-failed",
+      "severity": "High",
+      "message": "The TLS handshake with the site did not complete.",
+      "evidence": {
+        "error": "SSLZeroReturnError: TLS/SSL connection has been closed (EOF) (_ssl.c:992)"
+      }
+    },
+    {
+      "id": "headers-not-checked",
+      "severity": "Info",
+      "message": "The page could not be fetched, so its response headers were not graded.",
+      "evidence": {
+        "error": "SSLError: HTTPSConnectionPool(host='www.bigbox.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+      }
+    }
+  ],
+  "summary": {
+    "Critical": 0,
+    "High": 1,
+    "Medium": 0,
+    "Low": 0,
+    "Info": 1,
+    "total": 2
+  }
+}
